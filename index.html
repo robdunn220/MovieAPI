@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.js"></script>
+    <script src="angular-ui-router.js"></script>
+    <script src="movie_api.js"></script>
+    <link rel="stylesheet" href="style.css" media="screen">
+    <title>Movie Stuff</title>
+  </head>
+  <body ng-app="movie-app" ng-controller="MovieController">
+    <button ng-click="getNowPlaying()">Now Playing</button>
+    <ul ng-repeat="entry in results">
+      <li>Title: {{entry.title}} ID: {{entry.id}}</li>
+    </ul>
+  </body>
+  <ui-view></ui-view>
+</html>

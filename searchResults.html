@@ -1,0 +1,9 @@
+<div class ="results" ng-controller="SearchController">
+
+    <div class="posterContainer">
+      <ul ng-repeat="result in searchResult">
+        <li class="titles">Title: {{result.title}}</li>
+        <img class = "posterImage" src="https://image.tmdb.org/t/p/w500{{result.poster_path}}" ng-click="showResult(result.id)"/>
+      </ul>
+    </div>
+</div>

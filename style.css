@@ -1,0 +1,14 @@
+.posterContainer {
+  text-align: center;
+  width: 300px;
+  float: left;
+}
+
+.posterImage {
+  height: 200px;
+  width: 120px;
+}
+
+.titles {
+  list-style: none;
+}
