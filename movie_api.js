@@ -20,19 +20,17 @@ app.factory('Movie', function factoryFunction($http) {
      return $http({
        url: 'http://api.themoviedb.org/3/search/movie' ,
        params: { api_key: 'f4bd08c29a02c112cf978236f15f2c92',
-               query: query }
+                query: query }
      });
    };
   return service;
 });
 
 app.controller('MovieController', function($scope, Movie) {
-  $scope.getNowPlaying = function() {
     Movie.nowPlaying().success(function(results) {
       console.log(results);
       $scope.results = results.results;
     });
-  };
 });
 
 app.controller('SearchController', function($scope, $state, $stateParams, Movie) {
@@ -41,14 +39,15 @@ app.controller('SearchController', function($scope, $state, $stateParams, Movie)
        $scope.searchResult = search.results;
        console.log($scope.searchResult);
     });
+});
 
-    $scope.showResult = function(movieId) {
-      console.log(movieId);
-      Movie.details(movieId).success(function(details) {
-        $scope.detail = details;
-        console.log($scope.detail);
+app.controller('IndividualPageController', function($scope, $stateParams, Movie) {
+  $scope.movieID = $stateParams.movie_id;
+  console.log($scope.movieID);
+    Movie.details($scope.movieID).success(function(details) {
+      $scope.detail = details;
+      console.log($scope.detail);
     });
-  };
 });
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -56,7 +55,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state({
       name: 'home',
       url: '/',
-      templateUrl: 'index.html'
+      templateUrl: 'index.html',
+      controller: 'MovieController'
     })
     .state({
       name: 'search',
@@ -68,5 +68,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/search/{results}',
       templateUrl: 'searchResults.html',
       controller: 'SearchController'
+    })
+    .state({
+      name: 'indPage',
+      url: '/{movie_id}',
+      templateUrl: 'indPage.html',
+      controller: 'IndividualPageController'
     });
 });

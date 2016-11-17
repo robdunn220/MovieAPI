@@ -8,11 +8,17 @@
     <link rel="stylesheet" href="style.css" media="screen">
     <title>Movie Stuff</title>
   </head>
+  <input class="searchBox" type="text" ng-model="query" placeholder="Enter search term">
+  <a ui-sref="searchResults({results: query})"><button>Search</button></a>
   <body ng-app="movie-app" ng-controller="MovieController">
-    <button ng-click="getNowPlaying()">Now Playing</button>
-    <ul ng-repeat="entry in results">
-      <li>Title: {{entry.title}} ID: {{entry.id}}</li>
-    </ul>
   </body>
-  <ui-view></ui-view>
+  <ui-view>
+    <h1 class="npHeader">Now Playing</h1><br>
+    <div class="flex-box">
+
+    <div class="flex-item" ng-repeat="entry in results">
+      <a ui-sref="indPage({movie_id: entry.id})"><img class = "posterImage" src="https://image.tmdb.org/t/p/w500{{entry.poster_path}}"/></a>
+    </div>
+  </div>
+</ui-view>
 </html>

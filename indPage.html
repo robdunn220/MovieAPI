@@ -1,0 +1,19 @@
+<div class="flex-box-info" ng-controller='IndividualPageController'>
+  <div class="flex-item-info">
+    <img class = "posterImageInd" src="https://image.tmdb.org/t/p/w500{{detail.poster_path}}"/>
+  </div>
+  <div class="flex-item-info">
+      <div class="title">
+        {{detail.title}}
+      </div>
+      <div class="content">
+        Release Date: {{detail.release_date}}
+      </div>
+      <div class="content">
+        Runtime: {{detail.runtime}} min.
+      </div>
+      <div class="content">
+        {{detail.overview}}
+      </div>
+  </div>
+</div>

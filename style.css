@@ -1,14 +1,77 @@
-.posterContainer {
-  text-align: center;
-  width: 300px;
-  float: left;
+.searchBox {
+  width: 240px;
+  height: 30px;
+  font-size: 18px;
 }
 
+.flex-box {
+    display: -webkit-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+}
+
+.flex-item {
+    width: 240px;
+    height: 400px;
+    margin: 40px 20px;
+}
 .posterImage {
-  height: 200px;
-  width: 120px;
+  height: 400px;
+  width: 240px;
+  border-radius: 1px;
+  border-style: solid;
+  margin: 40px 10px;
+  border-color: black;
+}
+
+.posterImage:hover {
+  height: 440px;
+  width: 260px;
+  box-shadow: 10px black;
+}
+
+.posterImageInd {
+  height: 400px;
+  width: 240px;
+  border-radius: 1px;
+  border-style: solid;
+  /*margin: 40px 10px;*/
+  border-color: black;
 }
 
 .titles {
   list-style: none;
+}
+
+.flex-box-info {
+  display: -webkit-flex;
+  flex-direction: row;
+  width: 80%;
+  text-align: center;
+}
+
+.flex-item-info {
+    width: 300px;
+    height: 400px;
+    margin: 30px 20px 0px 0px;
+}
+
+.title{
+  margin: 10px;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.content {
+  width: auto;
+  margin-top: 10px;
+}
+
+
+
+.npHeader {
+  margin-left: 600px;
 }
